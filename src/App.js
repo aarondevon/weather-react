@@ -4,11 +4,21 @@ import Header from './components/header';
 import WeatherForm from './components/WeatherForm';
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      location: '',
+      longitude: '',
+      latitude: ''
+    }
+    this.getLocation = this.getLocation.bind(this);
+  }
+
   render() {
     return (
         <div className="App">
           <Header />
-          <WeatherForm />
+          <WeatherForm getLocation={this.getLocation}/>
         </div>
     );
   }
